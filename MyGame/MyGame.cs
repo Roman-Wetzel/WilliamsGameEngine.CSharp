@@ -7,7 +7,7 @@ namespace MyGame
         private const int WindowWidth = 800;
         private const int WindowHeight = 600;
 
-        private const string WindowTitle = "My Awesome Game";
+        private const string WindowTitle = "the game wow wow wow so cool";
 
         public static void Main(string[] args)
         {
@@ -20,6 +20,8 @@ namespace MyGame
 
             // Run the game loop.
             Game.Run();
+
+            //page 22 of tutorial
         }
     }
 }
