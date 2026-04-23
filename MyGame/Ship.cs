@@ -33,10 +33,15 @@ namespace MyGame
             float y = pos.Y;
             int msElapsed = elapsed.AsMilliseconds();
 
-            if(Keyboard.IsKeyPressed(Keyboard.Key.Up)) { y -= Speed * msElapsed; }
-            if(Keyboard.IsKeyPressed(Keyboard.Key.Down)) { y += Speed * msElapsed; }
-            if(Keyboard.IsKeyPressed(Keyboard.Key.Left)) { x -= Speed * msElapsed; }
+            //if(Keyboard.IsKeyPressed(Keyboard.Key.Up)) { y -= Speed * msElapsed; }
+            //if(Keyboard.IsKeyPressed(Keyboard.Key.Down)) { y += Speed * msElapsed; }
+            //if(Keyboard.IsKeyPressed(Keyboard.Key.Left)) { x -= Speed * msElapsed; }
             if(Keyboard.IsKeyPressed(Keyboard.Key.Right)) { x += Speed * msElapsed; }
+
+            if(Keyboard.IsKeyPressed(Keyboard.Key.W)) { y -= Speed * msElapsed; }
+            if(Keyboard.IsKeyPressed(Keyboard.Key.S)) { y += Speed * msElapsed; }
+            if(Keyboard.IsKeyPressed(Keyboard.Key.A)) { x -= Speed * msElapsed; }
+            if(Keyboard.IsKeyPressed(Keyboard.Key.D)) { x += Speed * msElapsed; }
 
             _sprite.Position = new Vector2f(x,y);
 
@@ -45,7 +50,7 @@ namespace MyGame
                 _fireTimer -= msElapsed;
             }
 
-            if(Keyboard.IsKeyPressed(Keyboard.Key.Space) && _fireTimer <=0)
+            if(Keyboard.IsKeyPressed(Keyboard.Key.Space) && _fireTimer <=0 ||Keyboard.IsKeyPressed(Keyboard.Key.E) && _fireTimer <=0)
             {
                 _fireTimer = FireDelay;
 
