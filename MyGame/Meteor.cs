@@ -7,7 +7,7 @@ namespace MyGame
 {
     class Meteor : GameObject
     {
-        private const float Speed = 0.5f;
+        private const float Speed = 0.3f;
 
         private readonly Sprite _sprite = new Sprite();
 
@@ -30,8 +30,15 @@ namespace MyGame
                 otherGameObject.MakeDead();
             }
             MakeDead();
+
+            Vector2f pos = _sprite.Position;
+            pos.X = pos.X + _sprite.GetGlobalBounds().Width / 2.0f;
+            pos.Y = pos.Y + _sprite.GetGlobalBounds().Height / 2.0f;
+
+            Explosion explosion = new Explosion(pos);
+            Game.CurrentScene.AddGameObject(explosion);
         }
-        
+
         public override void Draw()
         {
             Game.RenderWindow.Draw(_sprite);
