@@ -7,6 +7,8 @@ namespace MyGame
     
     class Laser : GameObject
     {
+
+        
         private const float Speed = 1.2f;
 
         private readonly Sprite _sprite= new Sprite();
@@ -16,6 +18,8 @@ namespace MyGame
             _sprite.Position = pos;
 
             AssignTag("laser");
+
+            
         }
         public override void Draw()
         {
