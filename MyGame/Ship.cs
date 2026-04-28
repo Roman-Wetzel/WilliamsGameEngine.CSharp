@@ -73,6 +73,7 @@ namespace MyGame
             {
                 otherGameObject.MakeDead();
                 GameScene scene =(GameScene)Game.CurrentScene;
+                scene.DecreaseLives();
                
             }
         }
