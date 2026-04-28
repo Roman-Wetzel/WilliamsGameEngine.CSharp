@@ -10,7 +10,7 @@ namespace MyGame
 
         public Score(Vector2f pos)
         {
-            _text.Font = Game.GetFont("Resources/Courneuf-Regular.tff");
+            _text.Font = Game.GetFont("Resources/Courneuf-Regular.ttf");
             _text.Position = pos;
             _text.CharacterSize = 24;
             _text.FillColor = Color.White;

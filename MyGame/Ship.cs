@@ -1,5 +1,6 @@
 using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using GameEngine;
 using SFML.Graphics;
 using SFML.System;
@@ -60,6 +61,19 @@ namespace MyGame
 
                 Laser laser = new Laser(new Vector2f(laserX, laserY));
                 Game.CurrentScene.AddGameObject(laser);
+            }
+
+            
+        }
+       
+        
+        public override void HandleCollision(GameObject otherGameObject)
+        {
+            if(otherGameObject.HasTag("meteor"))
+            {
+                otherGameObject.MakeDead();
+                GameScene scene =(GameScene)Game.CurrentScene;
+               
             }
         }
     }
