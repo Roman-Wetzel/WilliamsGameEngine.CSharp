@@ -7,7 +7,7 @@ namespace MyGame
         private const int WindowWidth = 800;
         private const int WindowHeight = 600;
 
-        private const string WindowTitle = "the game wow wow wow so cool";
+        private const string WindowTitle = "TIP: Use the Up/Down arrow keys for an extra speed boost!";
 
         public static void Main(string[] args)
         {

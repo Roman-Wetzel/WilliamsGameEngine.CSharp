@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.Versioning;
 using GameEngine;
 using SFML.Graphics;
@@ -31,8 +32,14 @@ namespace MyGame
                 GameScene scene =(GameScene)Game.CurrentScene;
                 scene.IncreaseScore();
             }
+        
+            if(otherGameObject.HasTag("ship"))
+            {
+                GameScene scene =(GameScene)Game.CurrentScene;
+                scene.DecreaseLives();
+            }
             MakeDead();
-
+            
             Vector2f pos = _sprite.Position;
             pos.X = pos.X + _sprite.GetGlobalBounds().Width / 2.0f;
             pos.Y = pos.Y + _sprite.GetGlobalBounds().Height / 2.0f;
@@ -40,7 +47,6 @@ namespace MyGame
             Explosion explosion = new Explosion(pos);
             Game.CurrentScene.AddGameObject(explosion);
         }
-
         public override void Draw()
         {
             Game.RenderWindow.Draw(_sprite);
@@ -55,7 +61,6 @@ namespace MyGame
             {
                 GameScene scene =(GameScene)Game.CurrentScene;
                 scene.DecreaseLives();
-
                 MakeDead();
             }
             else

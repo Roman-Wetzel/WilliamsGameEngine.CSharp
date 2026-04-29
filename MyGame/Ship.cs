@@ -20,13 +20,16 @@ namespace MyGame
         {
             _sprite.Texture = Game.GetTexture("Resources/ship.png");
             _sprite.Position = new Vector2f(100, 100);
+            AssignTag("ship");
         }
-
         public override void Draw()
         {
             Game.RenderWindow.Draw(_sprite);
         }
-
+        public override FloatRect GetCollisionRect()
+        {
+            return _sprite.GetGlobalBounds();
+        }
         public override void Update(Time elapsed)
         {
             Vector2f pos = _sprite.Position;
@@ -34,10 +37,10 @@ namespace MyGame
             float y = pos.Y;
             int msElapsed = elapsed.AsMilliseconds();
 
-            //if(Keyboard.IsKeyPressed(Keyboard.Key.Up)) { y -= Speed * msElapsed; }
-            //if(Keyboard.IsKeyPressed(Keyboard.Key.Down)) { y += Speed * msElapsed; }
+            if(Keyboard.IsKeyPressed(Keyboard.Key.Up)) { y -= Speed * msElapsed; }
+            if(Keyboard.IsKeyPressed(Keyboard.Key.Down)) { y += Speed * msElapsed; }
             //if(Keyboard.IsKeyPressed(Keyboard.Key.Left)) { x -= Speed * msElapsed; }
-            if(Keyboard.IsKeyPressed(Keyboard.Key.Right)) { x += Speed * msElapsed; }
+            //if(Keyboard.IsKeyPressed(Keyboard.Key.Right)) { x += Speed * msElapsed; }
 
             if(Keyboard.IsKeyPressed(Keyboard.Key.W)) { y -= Speed * msElapsed; }
             if(Keyboard.IsKeyPressed(Keyboard.Key.S)) { y += Speed * msElapsed; }
@@ -61,20 +64,6 @@ namespace MyGame
 
                 Laser laser = new Laser(new Vector2f(laserX, laserY));
                 Game.CurrentScene.AddGameObject(laser);
-            }
-
-            
-        }
-       
-        
-        public override void HandleCollision(GameObject otherGameObject)
-        {
-            if(otherGameObject.HasTag("meteor"))
-            {
-                otherGameObject.MakeDead();
-                GameScene scene =(GameScene)Game.CurrentScene;
-                scene.DecreaseLives();
-               
             }
         }
     }

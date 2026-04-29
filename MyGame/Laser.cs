@@ -4,11 +4,8 @@ using SFML.System;
 
 namespace MyGame
 {
-    
     class Laser : GameObject
     {
-
-        
         private const float Speed = 1.2f;
 
         private readonly Sprite _sprite= new Sprite();
@@ -18,8 +15,6 @@ namespace MyGame
             _sprite.Position = pos;
 
             AssignTag("laser");
-
-            
         }
         public override void Draw()
         {
@@ -38,8 +33,6 @@ namespace MyGame
                 _sprite.Position = new Vector2f(pos.X + Speed * msElapsed, pos.Y);
             }
         }
-
-
         public override FloatRect GetCollisionRect()
         {
             return _sprite.GetGlobalBounds();
