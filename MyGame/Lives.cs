@@ -25,7 +25,7 @@ namespace MyGame
         public override void Update(Time elapsed)
         {
             GameScene scene = (GameScene)Game.CurrentScene;
-            _text.DisplayedString = "Lives: " + scene.GetScore();
+            _text.DisplayedString = "Lives: " + scene.GetLives();
         }   
     }
 }

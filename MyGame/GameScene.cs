@@ -9,6 +9,9 @@ namespace MyGame
         private int _lives = 3;
         public GameScene()
         {
+            Background background = new Background();
+            AddGameObject(background);
+
             Ship ship = new Ship();
             AddGameObject(ship);
 
@@ -17,6 +20,10 @@ namespace MyGame
 
             Score score = new Score(new Vector2f(10.0f, 10.0f));
             AddGameObject(score);
+
+            Lives lives = new Lives(new Vector2f(700.0f, 10.0f));
+            AddGameObject(lives);
+            
         }
 
         public int GetScore()
